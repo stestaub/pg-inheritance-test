@@ -1,0 +1,22 @@
+<%= form_with(model: capital, local: true) do |form| %>
+  <% if capital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(capital.errors.count, "error") %> prohibited this capital from being saved:</h2>
+
+      <ul>
+      <% capital.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :capital_state %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
